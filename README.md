@@ -1,4 +1,6 @@
 Nexus-ChatApp Project Overview
+
+
 This project implements a fully functional real-time chat room system that enables multiple users to communicate seamlessly across different chat rooms. The system showcases modern networking concepts including WebSocket protocols, asynchronous programming, and scalable message broadcasting.
 
 Key Achievements
@@ -27,7 +29,9 @@ Design Patterns Implemented
  Graceful Degradation: Robust error handling and recovery |
 
 
-🌟 Features
+ Features
+
+ 
  ----- Real-Time Communication ----
 
 Instant messaging with sub-100ms latency
