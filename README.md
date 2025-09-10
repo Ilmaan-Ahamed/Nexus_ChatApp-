@@ -57,3 +57,5 @@ Interactive CLI interface with intuitive commands
 Comprehensive testing suite with automated scenarios
 Clear error messages and debugging information
 Modular architecture for easy extension
+
+Note : Python Server File Runs After the Apps Works
