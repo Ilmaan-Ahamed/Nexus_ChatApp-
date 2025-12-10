@@ -4,6 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus Chat - Modern WebSocket Chat</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal-overlay active">
+        <div class="login-container">
+            <div class="login-header">
+                <h1><i class="fas fa-comments"></i> Nexus Chat</h1>
+                <p>Connect, Chat, Collaborate</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="usernameInput" placeholder="Enter your username" required autocomplete="username">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-door-open"></i>
+                    <input type="text" id="roomInput" placeholder="Enter room name" required>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Enter Chat
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div id="chatInterface" class="chat-interface">
+        <!-- Top Header -->
+        <header class="chat-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="room-info">
+                    <h2 id="currentRoomName">General</h2>
+                    <span id="onlineCount">0 members online</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="header-btn" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="header-btn" id="settingsBtn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="header-btn logout-btn" id="logoutBtn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="chat-main">
+            <!-- Sidebar -->
+            <aside class="chat-sidebar" id="chatSidebar">
+                <div class="sidebar-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-hashtag"></i> Rooms</h3>
+                        <button class="add-btn" id="addRoomBtn">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="rooms-list" id="roomsList">
+                        <div class="room-item loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Loading rooms...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="section-header">
+                        <h3><i class="fas fa-users"></i> Online Users</h3>
+                    </div>
+                    <div class="members-list" id="membersList">
+                        <div class="member-item loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Loading members...
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Chat Area -->
+            <main class="chat-content">
+                <div class="messages-container" id="messagesContainer">
+                    <div class="welcome-message">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Welcome to Nexus Chat!</h3>
+                        <p>Start chatting with your team</p>
+                    </div>
+                </div>
+
+                <!-- Message Input -->
+                <div class="message-input-area">
+                    <div class="input-container">
+                        <button class="attachment-btn" title="Attach File">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <div class="message-input-wrapper">
+                            <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off">
+                            <button class="emoji-btn" title="Add Emoji">
+                                <i class="fas fa-smile"></i>
+                            </button>
+                        </div>
+                        <button class="send-btn" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Connection Status -->
+    <div class="connection-status" id="connectionStatus">
+        <div class="status-indicator online">
+            <i class="fas fa-circle"></i>
+            <span>Connected</span>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Chat - Modern WebSocket Chat</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> 
    
    <style>
@@ -1492,4 +1639,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
     </script>
 </body>
+
 </html>
